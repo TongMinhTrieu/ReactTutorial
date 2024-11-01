@@ -1,10 +1,10 @@
 ﻿import React from 'react';
+import MoviesList from './Components/MoviesList';
 
 function App() {
     return (
-        <div>
-            <h1>Tống Minh Triệu</h1>
-            <p>Đây là ứng dụng React đầu tiên của bạn.</p>
+        <div className="App">
+            <MoviesList />
         </div>
     );
 }

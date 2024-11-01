@@ -1,5 +1,8 @@
 ﻿import React, { useState } from 'react';
 
+// Sử dụng biến môi trường để gọi API
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const Login = ({ onLoginSuccess }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -9,14 +12,12 @@ const Login = ({ onLoginSuccess }) => {
         e.preventDefault();
         setError('');
         try {
-            const response = await fetch('http://localhost:2112/api/login/login', {
+            const response = await fetch(`${API_BASE_URL}/login/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     username,
-                    password,
-                    EmailAddress: "trieu@gmail.com",
-                    role: "Admin"
+                    password
                 }),
             });
 

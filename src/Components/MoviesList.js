@@ -1,5 +1,7 @@
 ﻿import React, { useEffect, useState } from 'react';
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const MoviesList = () => {
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState('');
@@ -8,7 +10,7 @@ const MoviesList = () => {
         const fetchMovies = async () => {
             try {
                 const token = localStorage.getItem('token'); // Lấy token từ local storage
-                const response = await fetch('http://localhost:2112/api/Movies', {
+                const response = await fetch(`${API_BASE_URL}/Movies`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`, // Thêm token vào header
